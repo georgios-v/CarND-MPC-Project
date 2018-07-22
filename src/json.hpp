@@ -176,7 +176,8 @@ namespace nlohmann {
 					2, // integer
 					2, // unsigned
 					2, // float
-				}};
+				}
+			};
 
 			// discarded values are not comparable
 			if (lhs == value_t::discarded or rhs == value_t::discarded) {
@@ -1074,7 +1075,7 @@ namespace nlohmann {
 			result["copyright"] = "(C) 2013-2017 Niels Lohmann";
 			result["name"] = "JSON for Modern C++";
 			result["url"] = "https://github.com/nlohmann/json";
-			result["version"] ={
+			result["version"] = {
 				{"string", "2.1.1"},
 				{"major", 2},
 				{"minor", 1},
@@ -1096,37 +1097,45 @@ namespace nlohmann {
 #if defined(__clang__)
 			result["compiler"] = {
 				{"family", "clang"},
-				{"version", __clang_version__}};
+				{"version", __clang_version__}
+			};
 #elif defined(__ICC) || defined(__INTEL_COMPILER)
 			result["compiler"] = {
 				{"family", "icc"},
-				{"version", __INTEL_COMPILER}};
+				{"version", __INTEL_COMPILER}
+			};
 #elif defined(__GNUC__) || defined(__GNUG__)
 			result["compiler"] = {
 				{"family", "gcc"},
-				{"version", std::to_string(__GNUC__) + "." + std::to_string(__GNUC_MINOR__) + "." + std::to_string(__GNUC_PATCHLEVEL__)}};
+				{"version", std::to_string(__GNUC__) + "." + std::to_string(__GNUC_MINOR__) + "." + std::to_string(__GNUC_PATCHLEVEL__)}
+			};
 #elif defined(__HP_cc) || defined(__HP_aCC)
 			result["compiler"] = "hp"
 #elif defined(__IBMCPP__)
 			result["compiler"] = {
 				{"family", "ilecpp"},
-				{"version", __IBMCPP__}};
+				{"version", __IBMCPP__}
+			};
 #elif defined(_MSC_VER)
 			result["compiler"] = {
 				{"family", "msvc"},
-				{"version", _MSC_VER}};
+				{"version", _MSC_VER}
+			};
 #elif defined(__PGI)
 			result["compiler"] = {
 				{"family", "pgcpp"},
-				{"version", __PGI}};
+				{"version", __PGI}
+			};
 #elif defined(__SUNPRO_CC)
 			result["compiler"] = {
 				{"family", "sunpro"},
-				{"version", __SUNPRO_CC}};
+				{"version", __SUNPRO_CC}
+			};
 #else
 			result["compiler"] = {
 				{"family", "unknown"},
-				{"version", "unknown"}};
+				{"version", "unknown"}
+			};
 #endif
 
 #ifdef __cplusplus
@@ -6660,7 +6669,7 @@ namespace nlohmann {
 					} else if (N <= 0xffffffff) {
 						v.push_back(0x7a); // four-byte uint32_t for N
 						add_to_vector(v, 4, N);
-					}						// LCOV_EXCL_START
+					}// LCOV_EXCL_START
 					else if (N <= 0xffffffffffffffff) {
 						v.push_back(0x7b); // eight-byte uint64_t for N
 						add_to_vector(v, 8, N);
@@ -6687,7 +6696,7 @@ namespace nlohmann {
 					} else if (N <= 0xffffffff) {
 						v.push_back(0x9a); // four-byte uint32_t for N
 						add_to_vector(v, 4, N);
-					}						// LCOV_EXCL_START
+					}// LCOV_EXCL_START
 					else if (N <= 0xffffffffffffffff) {
 						v.push_back(0x9b); // eight-byte uint64_t for N
 						add_to_vector(v, 8, N);
@@ -6715,7 +6724,7 @@ namespace nlohmann {
 					} else if (N <= 0xffffffff) {
 						v.push_back(0xba);
 						add_to_vector(v, 4, N); // four-byte uint32_t for N
-					}						// LCOV_EXCL_START
+					}// LCOV_EXCL_START
 					else if (N <= 0xffffffffffffffff) {
 						v.push_back(0xbb);
 						add_to_vector(v, 8, N); // eight-byte uint64_t for N
@@ -7751,7 +7760,7 @@ namespace nlohmann {
 						if (c >= 0x00 and c <= 0x1f) {
 							// convert a number 0..15 to its hex representation
 							// (0..f)
-							static const char hexify[16] ={
+							static const char hexify[16] = {
 								'0', '1', '2', '3', '4', '5', '6', '7',
 								'8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
 							};
@@ -7792,7 +7801,8 @@ namespace nlohmann {
 		private:
 			/// a (hopefully) large enough character buffer
 			std::array < char, 64 > m_buf{
-				{}};
+				{}
+			};
 
 			template<typename NumberType>
 			void x_write(NumberType x, /*is_integral=*/std::true_type) {
@@ -9206,7 +9216,7 @@ namespace nlohmann {
 					{
 						lexer_char_t yych;
 						unsigned int yyaccept = 0;
-						static const unsigned char yybm[] ={
+						static const unsigned char yybm[] = {
 							0, 0, 0, 0, 0, 0, 0, 0,
 							0, 32, 32, 0, 0, 32, 0, 0,
 							0, 0, 0, 0, 0, 0, 0, 0,
