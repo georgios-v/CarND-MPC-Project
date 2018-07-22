@@ -97,8 +97,9 @@ To account for latency the controller was made to perform one time step in the f
 
 The car is able to drive around the track flawlessly and safely at speeds that reach almost 100mph.
 
-![Demo video](vid.mp4)
+![Demo](images/vid.gif)
 
+![Full video](vid.mp4)
 
 
 ## Running the project
